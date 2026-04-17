@@ -21,49 +21,46 @@ body{
 }
 
 /* ===== FLOATING NAVBAR ===== */
+/* ===== NAVBAR LIKE YOUR IMAGE ===== */
 .navbar{
-  position:fixed;
-  top:20px;
-  left:50%;
-  transform:translateX(-50%);
-  
-  width:95%;
-  max-width:1100px;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
 
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:center;
 
-  padding:10px 20px;
+  padding:20px 0;
 
-  background:rgba(255,255,255,0.2);
-  backdrop-filter:blur(20px);
-
-  border-radius:50px;
-  box-shadow:0 8px 30px rgba(0,0,0,0.2);
+  background:rgba(255,255,255,0.25);
+  backdrop-filter:blur(12px);
 
   z-index:1000;
 }
 
-.logo-left{
-  display:flex;
-  align-items:center;
+/* LOGO LEFT */
+.logo{
+  position:absolute;
+  left:20px;
 }
 
-.logo-left img{
-  height:40px;
+.logo img{
+  height:50px;
 }
 
-/* NAV LINKS */
+/* CENTER LINKS */
 .nav-links{
   display:flex;
-  gap:15px;
+  gap:20px;
 }
 
+/* PILLS */
 .nav-links a{
-  padding:10px 20px;
-  background:rgba(255,255,255,0.7);
-  border-radius:30px;
+  padding:12px 28px;
+  background:rgba(187,247,208,0.6);
+  border-radius:40px;
   color:black;
   text-decoration:none;
   font-weight:500;
@@ -71,10 +68,14 @@ body{
 }
 
 .nav-links a:hover{
-  background:white;
+  background:#bbf7d0;
   transform:scale(1.05);
 }
-
+@media(max-width:768px){
+  .nav-links{
+    display:none;
+  }
+}
 /* ===== HERO ===== */
 .hero{
   min-height:100vh;
@@ -219,17 +220,21 @@ body{
 
 <!-- NAVBAR -->
 <div class="navbar">
-  <div class="logo-left">
-    <img src="images/pielogo.png">
+
+  <!-- LOGO LEFT -->
+  <div class="logo">
+    <img src="images/pielogo.png" alt="logo">
   </div>
 
+  <!-- CENTER LINKS -->
   <div class="nav-links">
     <a href="#">Home</a>
     <a href="#">About</a>
     <a href="#">Timeline</a>
     <a href="#">Sessions</a>
-    <a href="#">Contact</a>
+    <a href="#">Sponsors</a>
   </div>
+
 </div>
 
 <!-- HERO -->
