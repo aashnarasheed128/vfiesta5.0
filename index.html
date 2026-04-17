@@ -8,61 +8,74 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{color:white;overflow-x:hidden;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
 
-/* NAVBAR */
+body{
+  color:white;
+  overflow-x:hidden;
+}
+
+/* ===== FLOATING NAVBAR ===== */
 .navbar{
-  position:absolute;
-  top:0;
-  width:100%;
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  
+  width:95%;
+  max-width:1100px;
+
   display:flex;
-  justify-content:space-between; 
   align-items:center;
-  padding:15px 20px;
-  background:rgba(0,0,0,0.3);
-  backdrop-filter:blur(12px);
+  justify-content:space-between;
+
+  padding:10px 20px;
+
+  background:rgba(255,255,255,0.2);
+  backdrop-filter:blur(20px);
+
+  border-radius:50px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.2);
+
   z-index:1000;
+}
+
+.logo-left{
+  display:flex;
+  align-items:center;
 }
 
 .logo-left img{
   height:40px;
 }
-.logo-left img{height:48px;}
 
+/* NAV LINKS */
 .nav-links{
   display:flex;
   gap:15px;
 }
-@media(max-width:768px){
 
-  .nav-links{
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:8px;
-  }
-
-  .nav-links a{
-    padding:8px 14px;
-    font-size:13px;
-  }
-
-}
 .nav-links a{
-  padding:10px 25px;
-  background:rgba(187,247,208,0.6);
+  padding:10px 20px;
+  background:rgba(255,255,255,0.7);
   border-radius:30px;
   color:black;
   text-decoration:none;
+  font-weight:500;
   transition:0.3s;
 }
 
 .nav-links a:hover{
-  background:#bbf7d0;
+  background:white;
   transform:scale(1.05);
 }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero{
   min-height:100vh;
   width:100%;
@@ -71,30 +84,24 @@ body{color:white;overflow-x:hidden;}
   justify-content:center;
   padding:120px 15%;
   position:relative;
-
-  background: none;
 }
 
-/* PARALLAX BG */
+/* BACKGROUND */
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
   background:url('images/bg.png') no-repeat center center;
   background-size:cover;
-  background-attachment:scroll; /* important for mobile */
   z-index:0;
 }
+
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
   background:rgba(0,0,0,0.4);
   z-index:1;
-}
-@keyframes slowMove{
-  from{transform:scale(1.1) translateY(0);}
-  to{transform:scale(1.15) translateY(-20px);}
 }
 
 .hero-content{
@@ -107,21 +114,16 @@ body{color:white;overflow-x:hidden;}
   from{opacity:0;transform:translateY(40px);}
   to{opacity:1;transform:translateY(0);}
 }
-.hero h2{
-  font-size:clamp(16px, 3vw, 22px);
-}
-.hero h1{
-  font-size:clamp(32px, 6vw, 52px);
-}
-.hero p{
-  font-size:clamp(16px, 3vw, 20px);
-}
+
+.hero h2{font-size:clamp(16px, 3vw, 22px);}
+.hero h1{font-size:clamp(32px, 6vw, 52px);}
+.hero p{font-size:clamp(16px, 3vw, 20px);}
 
 /* BUTTONS */
 .btn-group{
   display:flex;
   gap:15px;
-  flex-wrap:wrap; /* important */
+  flex-wrap:wrap;
 }
 
 .btn{
@@ -144,7 +146,6 @@ body{color:white;overflow-x:hidden;}
   box-shadow:0 0 15px rgba(34,197,94,0.7);
 }
 
-
 /* COUNTDOWN */
 .countdown{
   margin-top:40px;
@@ -164,20 +165,6 @@ body{color:white;overflow-x:hidden;}
   50%{transform:translateY(-10px);}
 }
 
-@media(max-width:768px){
-  .countdown{
-    flex-wrap:wrap;
-    gap:15px;
-    justify-content:center;
-    padding:15px;
-  }
-
-  .time-box{
-    min-width:70px;
-  }
-}
-
-
 .time-box p{
   font-size:32px;
   font-weight:bold;
@@ -189,33 +176,41 @@ body{color:white;overflow-x:hidden;}
   color:#065f46;
 }
 
-/* MOBILE */
+/* ===== MOBILE ===== */
 @media(max-width:768px){
-  .hero{text-align:center;align-items:center;padding:120px 20px;}
-  
-  .countdown{flex-wrap:wrap;gap:15px;justify-content:center;}
-}
- @media(max-width:768px){
+
+  .navbar{
+    flex-direction:column;
+    gap:10px;
+    padding:15px;
+    width:90%;
+    border-radius:25px;
+  }
+
   .nav-links{
     flex-wrap:wrap;
     justify-content:center;
-    width:100%;
-    margin-top:10px;
-  }
-@media(max-width:768px){
-
-  .navbar{
-    width:90%;
-    left:50%;
-    transform:translateX(-50%);
-    border-radius:20px;
-    padding:10px 15px;
+    gap:10px;
   }
 
-}
-  .navbar{
-    flex-direction:column;
+  .nav-links a{
+    padding:8px 16px;
+    font-size:13px;
   }
+
+  .hero{
+    text-align:center;
+    align-items:center;
+    padding:120px 20px;
+  }
+
+  .countdown{
+    flex-wrap:wrap;
+    gap:15px;
+    justify-content:center;
+    padding:15px;
+  }
+
 }
 </style>
 </head>
@@ -247,12 +242,10 @@ body{color:white;overflow-x:hidden;}
 
     <div class="btn-group">
       <button class="btn">Register Now</button>
-      <a href="https://www.ieee.org/membership-catalog/index.html?N=0." target="_blank">
+      <a href="https://www.ieee.org/membership-catalog/index.html" target="_blank">
         <button class="btn join">Join IEEE PIE</button>
       </a>
     </div>
-
-
 
     <!-- COUNTDOWN -->
     <div class="countdown">
